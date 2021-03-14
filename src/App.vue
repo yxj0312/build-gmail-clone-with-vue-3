@@ -5,7 +5,8 @@
     <tbody>
       <tr v-for="email in emails"
         :key="email.id"
-        class="clickable">
+        :class="['clickable', email.red ? 'read' : '' ]"
+        @click="email.read = true">
         <td>
           <input type="checkbox" name="" value="">
         </td>
