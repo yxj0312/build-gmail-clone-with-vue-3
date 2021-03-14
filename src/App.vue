@@ -4,9 +4,14 @@
   <table class="mail-table">
     <tbody>
       <tr v-for="email in emails"
-        :key="emails.id"
+        :key="email.id"
         class="clickable">
-        {{ email.subject }}  
+        <td>
+          <input type="checkbox" name="" value="">
+        </td>
+        <td>{{email.from}}</td>  
+        <td><p><strong>{{email.subject}}</strong> - {{email.body}}</p></td>
+        <td class="date">{{email.sentAt}}</td>
       </tr>
     </tbody>
   </table>
