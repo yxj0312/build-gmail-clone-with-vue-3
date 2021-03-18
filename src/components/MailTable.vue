@@ -19,13 +19,14 @@
 
 <script>
 import { format } from 'date-fns';
+import { ref } from 'vue';
 
 export default {
     async setup(){
         await new Promise(resolve => setTimeout(resolve, 3000))
         return {
         format,
-        "emails": [
+        "emails": ref([
             {
             "id": 1,
             "from": "team@vuemastery.com",
@@ -63,7 +64,7 @@ export default {
             "read": false
             }
         ]
-        }
+        )}
     },
     computed: {
         sortedEmails() {
