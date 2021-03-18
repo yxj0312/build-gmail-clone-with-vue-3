@@ -22,6 +22,7 @@ import { format } from 'date-fns';
 
 export default {
     async setup(){
+        await new Promise(resolve => setTimeout(resolve, 3000))
         return {
         format,
         "emails": [
