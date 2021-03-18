@@ -22,6 +22,7 @@ import { format } from 'date-fns';
 import { ref } from 'vue';
 
 export default {
+    // async setup should use with a suspense boundary at <App> (Root).
     async setup(){
         await new Promise(resolve => setTimeout(resolve, 3000))
         return {
