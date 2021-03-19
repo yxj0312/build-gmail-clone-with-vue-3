@@ -15,6 +15,9 @@
         </tr>
         </tbody>
     </table>
+    <div v-if="openedEmail">
+        {{ openedEmail.subject }}
+    </div>
 </template>
 
 <script>
@@ -28,7 +31,8 @@ export default {
         let {data: emails} = await axios.get('http://localhost:3000/emails')
         return {
             format,
-            emails: ref(emails)
+            emails: ref(emails),
+            openedEmail: null
         }
     },
     computed: {
@@ -46,6 +50,7 @@ export default {
         openEmail(email) {
             email.read = true
             this.updateEmail(email)
+            this.openedEmail = email
         },
         archiveEmail(email) {
             email.archived = true
