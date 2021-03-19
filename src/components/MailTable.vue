@@ -4,7 +4,7 @@
         <tr v-for="email in unarchivedEmails"
             :key="email.id"
             :class="['clickable', email.read ? 'read' : '' ]"
-            @click="readEmail(email)">
+            @click="openEmail(email)">
             <td>
             <input type="checkbox" name="" value="">
             </td>
@@ -43,7 +43,7 @@ export default {
         }
     },
     methods: {
-        readEmail(email) {
+        openEmail(email) {
             email.read = true
             this.updateEmail(email)
         },
