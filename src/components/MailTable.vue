@@ -11,7 +11,7 @@
             <td>{{email.from}}</td>  
             <td><p><strong>{{email.subject}}</strong> - {{email.body}}</p></td>
             <td class="date">{{format(new Date(email.sentAt), 'MMM do yyyy')}}</td>
-            <td><button @click="email.archived = true">Archive</button></td>
+            <td><button @click="archiveEmail(email)">Archive</button></td>
         </tr>
         </tbody>
     </table>
@@ -45,6 +45,10 @@ export default {
     methods: {
         readEmail(email) {
             email.read = true
+            axios.put(`http://localhost:3000/emails/${email.id}`, email)
+        },
+        archiveEmail(email) {
+            email.archived = true
             axios.put(`http://localhost:3000/emails/${email.id}`, email)
         }
     }
