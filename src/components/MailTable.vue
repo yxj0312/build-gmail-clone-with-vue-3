@@ -45,10 +45,13 @@ export default {
     methods: {
         readEmail(email) {
             email.read = true
-            axios.put(`http://localhost:3000/emails/${email.id}`, email)
+            this.updateEmail(email)
         },
         archiveEmail(email) {
             email.archived = true
+            this.updateEmail(email)
+        },
+        updateEmail(email) {
             axios.put(`http://localhost:3000/emails/${email.id}`, email)
         }
     }
