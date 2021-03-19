@@ -4,7 +4,7 @@
         <tr v-for="email in unarchivedEmails"
             :key="email.id"
             :class="['clickable', email.read ? 'read' : '' ]"
-            @click="email.read = true">
+            @click="readEmail(email)">
             <td>
             <input type="checkbox" name="" value="">
             </td>
@@ -40,6 +40,12 @@ export default {
 
         unarchivedEmails() {
         return this.sortedEmails.filter(e => !e.archived)
+        }
+    },
+    methods: {
+        readEmail(email) {
+            email.read = true
+            axios.put(`http://localhost:3000/emails/${email.id}`, email)
         }
     }
 }
