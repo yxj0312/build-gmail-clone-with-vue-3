@@ -15,7 +15,9 @@
         </tr>
         </tbody>
     </table>
-    <MailView v-if="openedEmail" :email="openedEmail"/>
+    <ModalView v-if="openedEmail">
+        <MailView :email="openedEmail"/>
+    </ModalView>
 </template>
 
 <script>
@@ -23,6 +25,7 @@ import { format } from 'date-fns';
 import { ref } from 'vue';
 import axios from 'axios';
 import MailView from '@/components/MailView.vue'
+import ModalView from '@/components/ModalView.vue'
 
 export default {
     // async setup should use with a suspense boundary at <App> (Root).
@@ -35,7 +38,8 @@ export default {
         }
     },
     components: {
-        MailView
+        MailView,
+        ModalView
     },
     computed: {
         sortedEmails() {
