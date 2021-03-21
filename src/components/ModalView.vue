@@ -10,6 +10,10 @@
 <script>
   export default {
     setup(props, {emit}) {
+      let onKeydown = (event) => {
+        console.log(event.key);
+      }
+      window.addEventListener('keydown', onKeydown)
       return { 
 	      emit
       }
