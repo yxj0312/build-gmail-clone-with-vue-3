@@ -8,22 +8,8 @@
 </template>
 
 <script>
-  import { onBeforeUnmount } from 'vue';
-  // let useKeydown = (keyPressed, fn) => {
-  let useKeydown = (keyCombos) => {
-        let onkey = function(event) {
-          let kc = keyCombos.find(kc => kc.key == event.key )
-          if(kc) {
-            kc.fn()
-          }
-      }
-      window.addEventListener('keydown', onkey);
+  import useKeydown from '../composables/use-keydown'
 
-      // This hook will be called every time we unmount the modal, removing the event listener.
-      onBeforeUnmount(() => {
-        window.removeEventListener('keydown', onkey)
-      })
-  }
   export default {
     // Close it down, and open it up again… 
     // and notice that it’s logging twice per key press. Then close it down, and notice it’s still logging twice per key press. 
@@ -31,7 +17,7 @@
     setup(props, {emit}) {
       useKeydown([
         {key: 'Escape', fn: () => {emit('closeModal')}},
-        {key: 'Enter', fn: () => { console.log('logging for demonstration purposes') }}
+        // {key: 'Enter', fn: () => { console.log('logging for demonstration purposes') }}
       ])
 
       return { 
