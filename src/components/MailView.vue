@@ -1,5 +1,11 @@
 <template>
     <div class="email-display">
+        <div>
+            <button>Archive</button>
+            <button>Toggles Read</button>
+            <button>Newer</button>
+            <button>Older</button>
+        </div>
         <h2 class="mb-0">Subject: <strong>{{email.subject}}</strong></h2>
         <div><em>From {{email.from}} on {{format(new Date(email.sentAt), 'MMM do yyyy')}}</em></div>
         <div v-html="marked(email.body)"></div>
