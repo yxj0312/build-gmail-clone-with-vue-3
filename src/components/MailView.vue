@@ -2,7 +2,7 @@
     <div class="email-display">
         <div>
             <button>Archive</button>
-            <button>Toggles Read</button>
+            <button>{{email.read ? 'Mark Unread' : 'Mark Read'}}</button>
             <button>Newer</button>
             <button>Older</button>
         </div>
