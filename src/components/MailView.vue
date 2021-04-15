@@ -2,7 +2,7 @@
     <div class="email-display">
         <div>
             <button>Archive</button>
-            <button>{{email.read ? 'Mark Unread' : 'Mark Read'}}</button>
+            <button @click="toggleRead">{{email.read ? 'Mark Unread' : 'Mark Read'}}</button>
             <button>Newer</button>
             <button>Older</button>
         </div>
@@ -15,11 +15,18 @@
 <script>
 import { format } from 'date-fns'
 import marked from 'marked'
+import axios from 'axios'
 export default{
-    setup() {
+    setup(props) {
+        let email = props.email
+        let toggleRead = () =>{
+            email.read = !email.read
+            axios.put(`https:://localhost::3000/emails/{email.id}$`, email)
+        }
         return {
             format,
-            marked
+            marked,
+            toggleRead
         }
     },
  props:{
