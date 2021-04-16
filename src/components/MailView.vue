@@ -1,7 +1,7 @@
 <template>
     <div class="email-display">
         <div>
-            <button>Archive</button>
+            <button @click="toggleArchive">{{ email.archived ? 'Move to Inbox (e)' : 'Archive(e)'}}</button>
             <button @click="toggleRead">{{email.read ? 'Mark Unread (r)' : 'Mark Read (r)'}}</button>
             <button>Newer</button>
             <button>Older</button>
