@@ -16,7 +16,7 @@
         </tbody>
     </table>
     <ModalView v-if="openedEmail" @closeModal="openedEmail = null">
-        <MailView :email="openedEmail" />
+        <MailView :email="openedEmail"  @changeEmail = "changeEmail"/>
     </ModalView>
 </template>
 
