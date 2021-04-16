@@ -49,7 +49,7 @@ export default {
         },
 
         unarchivedEmails() {
-        return this.sortedEmails.filter(e => !e.archived)
+            return this.sortedEmails.filter(e => !e.archived)
         }
     },
     methods: {
@@ -62,6 +62,7 @@ export default {
             email.archived = true
             this.updateEmail(email)
         },
+        changeEmail() {},
         updateEmail(email) {
             axios.put(`http://localhost:3000/emails/${email.id}`, email)
         }
