@@ -2,7 +2,7 @@
     <div class="email-display">
         <div>
             <button>Archive</button>
-            <button @click="toggleRead">{{email.read ? 'Mark Unread' : 'Mark Read'}}</button>
+            <button @click="toggleRead">{{email.read ? 'Mark Unread (r)' : 'Mark Read (r)'}}</button>
             <button>Newer</button>
             <button>Older</button>
         </div>
@@ -16,6 +16,8 @@
 import { format } from 'date-fns'
 import marked from 'marked'
 import axios from 'axios'
+import useKeydown from '../composables/use-keydown'
+
 export default{
     setup(props) {
         let email = props.email
@@ -23,6 +25,10 @@ export default{
             email.read = !email.read
             axios.put(`https:://localhost::3000/emails/{email.id}$`, email)
         }
+
+        useKeydown([
+            {key:'r', fn: toggleRead}
+        ])
         return {
             format,
             marked,
