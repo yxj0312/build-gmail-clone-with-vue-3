@@ -3,8 +3,8 @@
         <div>
             <button @click="toggleArchive">{{ email.archived ? 'Move to Inbox (e)' : 'Archive(e)'}}</button>
             <button @click="toggleRead">{{email.read ? 'Mark Unread (r)' : 'Mark Read (r)'}}</button>
-            <button>Newer</button>
-            <button>Older</button>
+            <button @click="goNewer">Newer (k)</button>
+            <button @click="goOlder">Older (j)</button>
         </div>
         <h2 class="mb-0">Subject: <strong>{{email.subject}}</strong></h2>
         <div><em>From {{email.from}} on {{format(new Date(email.sentAt), 'MMM do yyyy')}}</em></div>
