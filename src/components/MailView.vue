@@ -21,14 +21,17 @@ import useKeydown from '../composables/use-keydown'
 export default{
     setup(props) {
         let email = props.email
-        let toggleRead = () => {
-            email.read = !email.read
-            axios.put(`https:://localhost::3000/emails/{email.id}$`, email)
-        }
-        let toggleArchive = () => {
-            email.archived = !email.archived
-            axios.put(`https:://localhost::3000/emails/{email.id}$`, email)
-        }
+        // let toggleRead = () => {
+        //     email.read = !email.read
+        //     axios.put(`https:://localhost::3000/emails/{email.id}$`, email)
+        // }
+        // let toggleArchive = () => {
+        //     email.archived = !email.archived
+        //     axios.put(`https:://localhost::3000/emails/{email.id}$`, email)
+        // }
+
+        let toggleRead = () => { emit('changeEmail', {toggleRead: true, save:true})}
+        let toggleArchive = () => { emit('changeEmail', {toggleArchive: true, save:true, closeModal: true})}
 
         useKeydown([
             {key:'r', fn: toggleRead}
@@ -36,7 +39,8 @@ export default{
         return {
             format,
             marked,
-            toggleRead
+            toggleRead,
+            toggleArchive
         }
     },
  props:{
