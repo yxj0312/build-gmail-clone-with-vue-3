@@ -34,8 +34,8 @@ export default{
         let toggleArchive = () => { emit('changeEmail', {toggleArchive: true, save:true, closeModal: true})}
         let goNewer = () => { emit('changeEmail', {changeIndex: -1})}
         let goOlder = () => { emit('changeEmail', {changeIndex: +1})}
-        let goNewerAndArchive = () => { emit('changeEmail', {changeIndex: +1, toggleArchive: true})}
-        let goOlderAndArchive = () => { emit('changeEmail', {changeIndex: +1, toggleArchive: true})}
+        let goNewerAndArchive = () => { emit('changeEmail', {changeIndex: +1, toggleArchive: true, save:true})}
+        let goOlderAndArchive = () => { emit('changeEmail', {changeIndex: +1, toggleArchive: true, save:true})}
 
         useKeydown([
             {key:'r', fn: toggleRead}
