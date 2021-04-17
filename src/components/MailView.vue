@@ -38,13 +38,22 @@ export default{
         let goOlderAndArchive = () => { emit('changeEmail', {changeIndex: +1, toggleArchive: true, save:true})}
 
         useKeydown([
-            {key:'r', fn: toggleRead}
+            {key:'r', fn: toggleRead},
+            {key:'e', fn: toggleArchive},
+            {key:'k', fn: goNewer},
+            {key:'j', fn: goOlder},
+            {key:'[', fn:goNewerAndArchive},
+            {key:']', fn: goOlderAndArchive}
         ])
         return {
             format,
             marked,
             toggleRead,
-            toggleArchive
+            toggleArchive,
+            goNewer,
+            goOlder,
+            goNewerAndArchive,
+            goOlderAndArchive
         }
     },
  props:{
