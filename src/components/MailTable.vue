@@ -62,7 +62,21 @@ export default {
             email.archived = true
             this.updateEmail(email)
         },
-        changeEmail() {},
+        changeEmail({toggleRead, toggleArchive, save, closeModal, changeIndex}) {
+            let email = this.openedEmail
+            if (toggleRead) {
+                email.read = !email.read
+            }
+            if (toggleArchive) {
+                email.archived = !email.archived
+            }
+            if (save) {
+                this.updateEmail(email)
+            }
+            if (closeModal) {
+                this.openEmail = null
+            }
+        },
         updateEmail(email) {
             axios.put(`http://localhost:3000/emails/${email.id}`, email)
         }
