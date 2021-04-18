@@ -19,7 +19,7 @@ import axios from 'axios'
 import useKeydown from '../composables/use-keydown'
 
 export default{
-    setup(props) {
+    setup(props, {emit}) {
         let email = props.email
         // let toggleRead = () => {
         //     email.read = !email.read
