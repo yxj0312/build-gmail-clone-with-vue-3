@@ -76,6 +76,13 @@ export default {
             if (closeModal) {
                 this.openEmail = null
             }
+
+            if (changeIndex) {
+                let emails = this.unarchivedEmails
+                let currentIndex = emails.indexOf(this.openedEmail)
+                let newEmail = emails[currentIndex + changeIndex]
+                this.openEmail(newEmail)
+            }
         },
         updateEmail(email) {
             axios.put(`http://localhost:3000/emails/${email.id}`, email)
