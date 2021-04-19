@@ -43,9 +43,9 @@ export default {
     },
     computed: {
         sortedEmails() {
-        return this.emails.sort((e1, e2) => {
-            return e1.sentAt < e2.sentAt ? 1 : -1
-        })
+            return this.emails.sort((e1, e2) => {
+                return e1.sentAt < e2.sentAt ? 1 : -1
+            })
         },
 
         unarchivedEmails() {
@@ -55,7 +55,7 @@ export default {
     methods: {
         openEmail(email) {
             this.openedEmail = email
-            
+
             if (email) {    
                 email.read = true
                 this.updateEmail(email)
