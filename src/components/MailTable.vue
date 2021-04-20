@@ -7,7 +7,7 @@
             <td>
             <input type="checkbox" 
                 @click="emailSelection.toggle(email)"
-                :selected="emailSelection.isSelected(email)">
+                :selected="emailSelection.emails.has(email)">
             </td>
             <td>{{email.from}}</td>  
             <td><p><strong>{{email.subject}}</strong> - {{email.body}}</p></td>
@@ -32,6 +32,15 @@ export default {
     // async setup should use with a suspense boundary at <App> (Root).
     async setup(){
         let {data: emails} = await axios.get('http://localhost:3000/emails')
+
+        let emailSelection = {
+            emails: [],
+            toggle(email) {
+                removeFromList
+            } else {
+                addToList
+            }
+        }
         return {
             format,
             emails: ref(emails),
