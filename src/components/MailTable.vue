@@ -7,7 +7,7 @@
             <td>
             <input type="checkbox" 
                 @click="emailSelection.toggle(email)"
-                :selected="emailSelection.emails.has(email)">
+                :checked="emailSelection.emails.has(email)">
             </td>
             <td>{{email.from}}</td>  
             <td><p><strong>{{email.subject}}</strong> - {{email.body}}</p></td>
@@ -45,6 +45,7 @@ export default {
             }
         }
         return {
+            emailSelection,
             format,
             emails: ref(emails),
             openedEmail: null
