@@ -1,4 +1,5 @@
 <template>
+    {{emailSelection.emails.size}} emails selected
     <table class="mail-table">
         <tbody>
         <tr v-for="email in unarchivedEmails"
@@ -35,13 +36,14 @@ export default {
 
         let selected = new Set()
         let emailSelection = {
-            emails: [],
+            emails: selected,
             toggle(email) {
                 if (selected.has(email)) {
                     selected.delete(email)
                 } else {
                     selected.add(email)
                 }
+                console.log(emailSelection.emails)
             }
         }
         return {
