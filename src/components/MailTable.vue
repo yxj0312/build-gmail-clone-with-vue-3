@@ -24,7 +24,7 @@
 
 <script>
 import { format } from 'date-fns';
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 import axios from 'axios';
 import MailView from '@/components/MailView.vue'
 import ModalView from '@/components/ModalView.vue'
@@ -34,6 +34,9 @@ export default {
     async setup(){
         let {data: emails} = await axios.get('http://localhost:3000/emails')
 
+        // emailSeIected and removeSelection() would each take multiple lines, or at least one longer line, to implement if we used in Array… but if we use a Set, then they both come built-in
+        // has , delete, and add do exactly what you’d expect.
+        // A value in the Set may only occur once, it is unique in the Set's collection
         let selected = new Set()
         let emailSelection = {
             emails: selected,
@@ -43,7 +46,7 @@ export default {
                 } else {
                     selected.add(email)
                 }
-                console.log(emailSelection.emails)
+                console.log(selected)
             }
         }
         return {
