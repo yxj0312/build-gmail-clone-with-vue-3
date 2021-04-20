@@ -33,12 +33,15 @@ export default {
     async setup(){
         let {data: emails} = await axios.get('http://localhost:3000/emails')
 
+        let selected = new Set()
         let emailSelection = {
             emails: [],
             toggle(email) {
-                removeFromList
-            } else {
-                addToList
+                if (selected.has(email)) {
+                    selected.delete(email)
+                } else {
+                    selected.add(email)
+                }
             }
         }
         return {
