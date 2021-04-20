@@ -3,14 +3,13 @@
         <tbody>
         <tr v-for="email in unarchivedEmails"
             :key="email.id"
-            :class="['clickable', email.read ? 'read' : '' ]"
-            @click="openEmail(email)">
+            :class="['clickable', email.read ? 'read' : '' ]">
             <td>
             <input type="checkbox" name="" value="">
             </td>
             <td>{{email.from}}</td>  
             <td><p><strong>{{email.subject}}</strong> - {{email.body}}</p></td>
-            <td class="date">{{format(new Date(email.sentAt), 'MMM do yyyy')}}</td>
+            <td class="date" @click="openEmail(email)">{{format(new Date(email.sentAt), 'MMM do yyyy')}}</td>
             <td><button @click="archiveEmail(email)">Archive</button></td>
         </tr>
         </tbody>
