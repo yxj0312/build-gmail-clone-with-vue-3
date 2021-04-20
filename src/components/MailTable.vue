@@ -5,7 +5,9 @@
             :key="email.id"
             :class="['clickable', email.read ? 'read' : '' ]">
             <td>
-            <input type="checkbox" name="" value="">
+            <input type="checkbox" 
+                @click="emailSelection.toggle(email)"
+                :selected="emailSelection.isSelected(email)">
             </td>
             <td>{{email.from}}</td>  
             <td><p><strong>{{email.subject}}</strong> - {{email.body}}</p></td>
