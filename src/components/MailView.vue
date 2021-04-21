@@ -17,7 +17,6 @@ import { format } from 'date-fns'
 import marked from 'marked'
 import axios from 'axios'
 import useKeydown from '../composables/use-keydown'
-import useEmailSelection from '@/composables/use-email-selection'
 
 export default{
     setup(props, {emit}) {

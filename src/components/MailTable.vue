@@ -24,10 +24,11 @@
 
 <script>
 import { format } from 'date-fns';
-import { reactive, ref } from 'vue';
+import { ref } from 'vue';
 import axios from 'axios';
 import MailView from '@/components/MailView.vue'
 import ModalView from '@/components/ModalView.vue'
+import useEmailSelection from '@/composables/use-email-selection'
 
 export default {
     // async setup should use with a suspense boundary at <App> (Root).
