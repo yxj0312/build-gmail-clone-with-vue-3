@@ -34,23 +34,8 @@ export default {
     async setup(){
         let {data: emails} = await axios.get('http://localhost:3000/emails')
 
-        // emailSeIected and removeSelection() would each take multiple lines, or at least one longer line, to implement if we used in Array… but if we use a Set, then they both come built-in
-        // has , delete, and add do exactly what you’d expect.
-        // A value in the Set may only occur once, it is unique in the Set's collection
-        let selected = reactive(new Set())
-        let emailSelection = {
-            emails: selected,
-            toggle(email) {
-                if (selected.has(email)) {
-                    selected.delete(email)
-                } else {
-                    selected.add(email)
-                }
-                console.log(selected)
-            }
-        }
         return {
-            emailSelection,
+            emailSelection: useEmailSelection(),
             format,
             emails: ref(emails),
             openedEmail: null
