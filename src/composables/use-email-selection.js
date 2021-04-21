@@ -1,5 +1,7 @@
 import { reactive } from 'vue';
 
+// If this is in the useEmailSelection
+// Because a new Set has been created for each usage of useEmailSelection. It’s not a global state.
 let emails = reactive(new Set())
 export const useEmailSelection = function () {
     // emailSeIected and removeSelection() would each take multiple lines, or at least one longer line, to implement if we used in Array… but if we use a Set, then they both come built-in
