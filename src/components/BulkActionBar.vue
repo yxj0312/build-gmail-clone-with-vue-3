@@ -1,7 +1,7 @@
 <template>
   <div>
-      {{ emails.length }}
-      {{ emailSelection.emails.size }}
+      <h1>{{ emails.length }}</h1>
+      <h1>{{ emailSelection.emails.size }}</h1>
   </div>
 </template>
 

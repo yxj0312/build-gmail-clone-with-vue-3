@@ -1,5 +1,6 @@
 <template>
-    {{emailSelection.emails.size}} emails selected
+    <BulkActionBar :emails="unarchivedEmails" />
+    <!-- {{emailSelection.emails.size}} emails selected -->
     <table class="mail-table">
         <tbody>
         <tr v-for="email in unarchivedEmails"
@@ -26,9 +27,10 @@
 import { format } from 'date-fns';
 import { ref } from 'vue';
 import axios from 'axios';
-import MailView from '@/components/MailView.vue'
-import ModalView from '@/components/ModalView.vue'
+import MailView from '@/components/MailView.vue';
+import ModalView from '@/components/ModalView.vue';
 import useEmailSelection from '@/composables/use-email-selection'
+import BulkActionBar from '@/components/BulkActionBar.vue';
 
 export default {
     // async setup should use with a suspense boundary at <App> (Root).
@@ -44,7 +46,8 @@ export default {
     },
     components: {
         MailView,
-        ModalView
+        ModalView,
+        BulkActionBar
     },
     computed: {
         sortedEmails() {
