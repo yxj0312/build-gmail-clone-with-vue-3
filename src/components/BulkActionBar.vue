@@ -1,7 +1,7 @@
 <template>
   <div>
-      <h1>{{ emails.length }}</h1>
-      <h1>{{ emailSelection.emails.size }}</h1>
+      <!-- <h1>{{ emails.length }}</h1>
+      <h1>{{ emailSelection.emails.size }}</h1> -->
       <input type="checkbox" :checked="allEmailsSelected" :class="[someEmailsSelected ? 'partial-check' : '']" />
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
         let numberEmails = props.emails.length
         // we must use .value here, because numberSelected value is a reactive refs
         let allEmailsSelected = computed(() => numberSelected.value === numberEmails)
-        let someEmailsSelected = computed( () => {
+        let someEmailsSelected = computed(() => {
             return numberSelected.value > 0 && numberSelected.value < numberEmails
         })
         return {
