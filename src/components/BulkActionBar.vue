@@ -1,6 +1,6 @@
 <template>
   <div>
-      {{ totalEmails }}
+      {{ emails.length }}
       {{ emailSelection.emails.size }}
   </div>
 </template>
@@ -11,6 +11,13 @@ export default {
     setup(props) {
         return {
             emailSelection: useEmailSelection()
+        }
+    },
+
+    props: {
+        emails: {
+            type: Array,
+            required: true
         }
     }
 }
