@@ -2,6 +2,7 @@
   <div>
       <h1>{{ emails.length }}</h1>
       <h1>{{ emailSelection.emails.size }}</h1>
+      <input type="checkbox" :checked="allEmailsSelected" :class="[someEmailsSelected ? 'partial-check' : '']" />
   </div>
 </template>
 
@@ -10,7 +11,9 @@ import useEmailSelection from '@/composables/use-email-selection'
 export default {
     setup(props) {
         return {
-            emailSelection: useEmailSelection()
+            emailSelection: useEmailSelection(),
+            allEmailsSelected,
+            someEmailsSelected
         }
     },
 
