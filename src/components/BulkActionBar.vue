@@ -2,7 +2,11 @@
   <div>
       <!-- <h1>{{ emails.length }}</h1>
       <h1>{{ emailSelection.emails.size }}</h1> -->
-      <input type="checkbox" :checked="allEmailsSelected" :class="[someEmailsSelected ? 'partial-check' : '']" />
+      <input type="checkbox" 
+      :checked="allEmailsSelected" 
+      :class="[someEmailsSelected ? 'partial-check' : '']" 
+      @click="bulkSelect"
+      />
   </div>
 </template>
 
@@ -19,6 +23,13 @@ export default {
         let someEmailsSelected = computed(() => {
             return numberSelected.value > 0 && numberSelected.value < numberEmails
         })
+        let bulkSelect = function() {
+            if (allEmailsSelected.value) {
+                emailSelection.clear()
+            } else {
+                emailSelection.addMultiple(props.emails)
+            }
+        }
         return {
             // These will be not working, cause this value will be only calculated once,
             // We need a computed value
