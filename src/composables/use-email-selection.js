@@ -25,7 +25,8 @@ export const useEmailSelection = function () {
     return {
         emails,
         toggle,
-        clear
+        clear,
+        addMultiple
     }
 }
 
