@@ -37,7 +37,8 @@ export default {
             // someEmailsSelected: numberSelected > 0 && numberSelected < numberEmails
 
             allEmailsSelected,
-            someEmailsSelected
+            someEmailsSelected,
+            bulkSelect
         }
     },
 
