@@ -1,4 +1,5 @@
 import { reactive } from 'vue';
+import axios from 'axios';
 
 // If this is in the useEmailSelection
 // Because a new Set has been created for each usage of useEmailSelection. It’s not a global state.
@@ -22,11 +23,19 @@ export const useEmailSelection = function () {
             emails.add(email)
         });
     }
+    // We don't need to pass any arguments, because all the emails are the reactive sets
+    let markRead = () => {
+        emails.forEach(email => {
+            email.read = false
+            axios.put(`http://localhost:3000/emails/${email.id}`, email)
+        })
+    }
     return {
         emails,
         toggle,
         clear,
-        addMultiple
+        addMultiple,
+        markRead
     }
 }
 
