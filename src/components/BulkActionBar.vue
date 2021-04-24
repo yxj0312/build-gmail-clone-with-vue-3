@@ -7,7 +7,9 @@
         @click="bulkSelect"
         />
         <span class="buttons">
-            <button>Click Me</button>
+            <button @click="emailSelection.markRead()">Mark Read</button>
+            <button @click="emailSelection.markRead()">Mark Unread</button>
+            <button @click="emailSelection.markRead()">Archive</button>
         </span>
       </span>
   </div>
@@ -41,7 +43,8 @@ export default {
 
             allEmailsSelected,
             someEmailsSelected,
-            bulkSelect
+            bulkSelect,
+            emailSelection
         }
     },
 
