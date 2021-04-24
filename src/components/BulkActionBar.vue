@@ -1,12 +1,15 @@
 <template>
-  <div>
-      <!-- <h1>{{ emails.length }}</h1>
-      <h1>{{ emailSelection.emails.size }}</h1> -->
-      <input type="checkbox" 
-      :checked="allEmailsSelected" 
-      :class="[someEmailsSelected ? 'partial-check' : '']" 
-      @click="bulkSelect"
-      />
+  <div class="bulk-action-bar">
+      <span class="checkbox">
+        <input type="checkbox" 
+        :checked="allEmailsSelected" 
+        :class="[someEmailsSelected ? 'partial-check' : '']" 
+        @click="bulkSelect"
+        />
+        <span class="buttons">
+            <button>Click Me</button>
+        </span>
+      </span>
   </div>
 </template>
 
