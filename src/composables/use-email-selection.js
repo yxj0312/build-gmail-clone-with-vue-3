@@ -32,7 +32,7 @@ export const useEmailSelection = function () {
     // We don't need to pass any arguments, because all the emails are the reactive sets
     const markRead = () => forSelected(e => e.read = true )
     const markUnread = () => forSelected(e => e.read = false )
-    const archive = () => {{forSelected(e => e.archived = false ); clear()}
+    const archive = () => {forSelected(e => e.archived = false ); clear}
   
     return {
         emails,

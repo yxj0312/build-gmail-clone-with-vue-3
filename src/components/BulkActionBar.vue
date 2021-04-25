@@ -9,7 +9,8 @@
         <span class="buttons">
             <button @click="emailSelection.markRead()">Mark Read</button>
             <button @click="emailSelection.markUnread()">Mark Unread</button>
-            <button @click="emailSelection.archive()">Archive</button>
+            <button @click="emailSelection.archive()"
+                :disabled="numberSelected === 0">Archive</button>
         </span>
       </span>
   </div>
@@ -44,7 +45,8 @@ export default {
             allEmailsSelected,
             someEmailsSelected,
             bulkSelect,
-            emailSelection
+            emailSelection,
+            numberSelected
         }
     },
 
