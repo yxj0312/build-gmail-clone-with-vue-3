@@ -26,7 +26,7 @@ export const useEmailSelection = function () {
     // We don't need to pass any arguments, because all the emails are the reactive sets
     const markRead = () => {
         emails.forEach(email => {
-            email.read = false
+            email.read = true
             axios.put(`http://localhost:3000/emails/${email.id}`, email)
         })
     }
