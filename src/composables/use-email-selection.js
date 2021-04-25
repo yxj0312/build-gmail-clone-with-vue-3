@@ -30,7 +30,6 @@ export const useEmailSelection = function () {
             axios.put(`http://localhost:3000/emails/${email.id}`, email)
         })
     }
-
     const markUnread = () => {
         emails.forEach(email => {
             email.read = false
@@ -49,7 +48,7 @@ export const useEmailSelection = function () {
         clear,
         addMultiple,
         markRead,
-        markUnread
+        markUnread,
         archive
     }
 }

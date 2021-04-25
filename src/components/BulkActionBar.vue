@@ -8,8 +8,8 @@
         />
         <span class="buttons">
             <button @click="emailSelection.markRead()">Mark Read</button>
-            <button @click="emailSelection.markRead()">Mark Unread</button>
-            <button @click="emailSelection.markRead()">Archive</button>
+            <button @click="emailSelection.markUnread()">Mark Unread</button>
+            <button @click="emailSelection.archive()">Archive</button>
         </span>
       </span>
   </div>
