@@ -7,8 +7,12 @@
         @click="bulkSelect"
         />
         <span class="buttons">
-            <button @click="emailSelection.markRead()">Mark Read</button>
-            <button @click="emailSelection.markUnread()">Mark Unread</button>
+            <!-- [...] transform set to an array, so that .every could be used -->
+            <!-- All are disabled when no emails are selected, and mark read/mark unread are disabled when all selected emails are read/unread. -->
+            <button @click="emailSelection.markRead()"
+                :disabled="[...emailSelection.emails].every(e => e.read)">Mark Read</button>
+            <button @click="emailSelection.markUnread()"
+                :disabled="[...emailSelection.emails].every(e => !e.read)">Mark Unread</button>
             <button @click="emailSelection.archive()"
                 :disabled="numberSelected === 0">Archive</button>
         </span>
