@@ -23,25 +23,17 @@ export const useEmailSelection = function () {
             emails.add(email)
         });
     }
+    const forSelected = (fn) => {
+        emails.forEach(email => {
+            fn(email);
+            axios.put(`http://localhost:3000/emails/${email.id}`, email)
+        })
+    }
     // We don't need to pass any arguments, because all the emails are the reactive sets
-    const markRead = () => {
-        emails.forEach(email => {
-            email.read = true
-            axios.put(`http://localhost:3000/emails/${email.id}`, email)
-        })
-    }
-    const markUnread = () => {
-        emails.forEach(email => {
-            email.read = false
-            axios.put(`http://localhost:3000/emails/${email.id}`, email)
-        })
-    }
-    const archive = () => {
-        emails.forEach(email => {
-            email.archived = true
-            axios.put(`http://localhost:3000/emails/${email.id}`, email)
-        })
-    };
+    const markRead = () => forSelected(e => e.read = true )
+    const markUnread = () => forSelected(e => e.read = false )
+    const archive = () => forSelected(e => e.archived = false )
+  
     return {
         emails,
         toggle,
