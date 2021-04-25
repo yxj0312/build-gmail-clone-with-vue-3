@@ -41,7 +41,7 @@ export default {
             emailSelection: useEmailSelection(),
             format,
             emails: ref(emails),
-            openedEmail: null
+            openedEmail: ref(null)
         }
     },
     components: {
