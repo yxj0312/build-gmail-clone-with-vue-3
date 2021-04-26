@@ -1,7 +1,7 @@
 <template>
-    <button @click="selectedScreen = 'inbox'"
+    <button @click="selectScreen('inbox')"
         :disabled="selectedScreen == 'inbox'">Inbox</button>
-    <button @click="selectedScreen = 'archive'"
+    <button @click="selectScreen('archive')"
         :disabled="selectedScreen == 'archive'">Archived</button>
     <BulkActionBar :emails="filteredEmails" />
     <!-- {{emailSelection.emails.size}} emails selected -->
@@ -106,7 +106,11 @@ export default {
         },
         updateEmail(email) {
             axios.put(`http://localhost:3000/emails/${email.id}`, email)
-        }
+        },
+        selectScreen(newScreen) {
+            this.selectedScreen = newScreen
+            this.emailSelection.clear() 
+        },
     }
 }
 </script>
