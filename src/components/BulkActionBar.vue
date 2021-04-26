@@ -27,7 +27,10 @@ export default {
     setup(props) {
         let emailSelection = useEmailSelection();
         let numberSelected = computed(() => emailSelection.emails.size)
-        let numberEmails = props.emails.length
+
+// When we switch to the archived view and select all the emails by hand, the ‘select all’ checkbox shows as only partially selected. It’s still comparing it to the number of emails in the ‘inbox’ view.
+// That’s because we forgot to make numberEmails in BulkActionBar.vue a computed property!
+        let numberEmails = computed(() => props.emails.length)
         // we must use .value here, because numberSelected value is a reactive refs
         let allEmailsSelected = computed(() => numberSelected.value === numberEmails)
         let someEmailsSelected = computed(() => {
