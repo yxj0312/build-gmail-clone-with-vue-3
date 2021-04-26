@@ -1,4 +1,8 @@
 <template>
+    <button @click="selectedScreen = 'inbox'"
+        :disabled="selectedScreen == 'inbox'">Inbox</button>
+    <button @click="selectedScreen = 'archive'"
+        :disabled="selectedScreen == 'archive'">Archived</button>
     <BulkActionBar :emails="unarchivedEmails" />
     <!-- {{emailSelection.emails.size}} emails selected -->
     <table class="mail-table">
@@ -41,7 +45,8 @@ export default {
             emailSelection: useEmailSelection(),
             format,
             emails: ref(emails),
-            openedEmail: ref(null)
+            openedEmail: ref(null),
+            selectedScreen: ref('inbox')
         }
     },
     components: {
