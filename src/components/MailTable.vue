@@ -3,11 +3,11 @@
         :disabled="selectedScreen == 'inbox'">Inbox</button>
     <button @click="selectedScreen = 'archive'"
         :disabled="selectedScreen == 'archive'">Archived</button>
-    <BulkActionBar :emails="unarchivedEmails" />
+    <BulkActionBar :emails="filteredEmails" />
     <!-- {{emailSelection.emails.size}} emails selected -->
     <table class="mail-table">
         <tbody>
-        <tr v-for="email in unarchivedEmails"
+        <tr v-for="email in filteredEmails"
             :key="email.id"
             :class="['clickable', email.read ? 'read' : '' ]">
             <td>
@@ -61,8 +61,12 @@ export default {
             })
         },
 
-        unarchivedEmails() {
-            return this.sortedEmails.filter(e => !e.archived)
+        filteredEmails() {
+            if(this.selectedScreen == 'inbox') {
+                return this.sortedEmails.filter(e => !e.archived)
+            } else {
+                return this.sortedEmails.filter(e => e.archived)
+            }
         }
     },
     methods: {
@@ -94,7 +98,7 @@ export default {
             }
 
             if (changeIndex) {
-                let emails = this.unarchivedEmails
+                let emails = this.filteredEmails
                 let currentIndex = emails.indexOf(this.openedEmail)
                 let newEmail = emails[currentIndex + changeIndex]
                 this.openEmail(newEmail)
