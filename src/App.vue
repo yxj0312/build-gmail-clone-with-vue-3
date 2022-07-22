@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <h1>VMail Inbox</h1>
   <Suspense>
     <template #default>
@@ -25,7 +25,17 @@ export default {
     }
   }
 };
+</script> -->
+
+<script setup>
+import { useMouse } from './composables/mouse';
+
+const { x, y } = useMouse()
 </script>
+
+<template>
+  Mouse position is at : {{ x }}, {{ y }}
+</template>
 
 <style>
 #app {
