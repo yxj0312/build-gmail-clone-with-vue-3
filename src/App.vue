@@ -28,11 +28,19 @@ export default {
 </script> -->
 
 <script setup>
-import { useTitle } from '@vueuse/core'
 import { useMouse } from './composables/mouse';
+import { useTitle, useRefHistory } from '@vueuse/core'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const { x, y } = useMouse()
 const title = useTitle('Green Socks', { titleTemplate: '%s | My Store'})
+const state = ref({});
+const { undo } = useRefHistory(state, {
+  deep:true,
+  capacity: 15
+})
+
+
 </script>
 
 <template>
