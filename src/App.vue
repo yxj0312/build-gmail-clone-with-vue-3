@@ -28,13 +28,17 @@ export default {
 </script> -->
 
 <script setup>
+import { useTitle } from '@vueuse/core'
 import { useMouse } from './composables/mouse';
 
 const { x, y } = useMouse()
+const title = useTitle('Green Socks', { titleTemplate: '%s | My Store'})
 </script>
 
 <template>
   Mouse position is at : {{ x }}, {{ y }}
+  <h1>Title Composable</h1>
+  <input v-model="title" type="text">
 </template>
 
 <style>
