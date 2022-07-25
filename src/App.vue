@@ -33,7 +33,10 @@ import { useTitle, useRefHistory } from '@vueuse/core'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const { x, y } = useMouse()
-const title = useTitle('Green Socks', { titleTemplate: '%s | My Store'})
+// const title = useTitle('Green Socks', { titleTemplate: '%s | My Store'})
+const title = useTitle('This ios the title')
+title.value = 'New title Please'
+
 const state = ref({});
 const { undo } = useRefHistory(state, {
   deep:true,
