@@ -58,6 +58,8 @@ const {counter, pause, resume } = useInterval(200, { controls: true})
   <h1>Title Composable</h1>
   <input v-model="title" type="text">
   <div>{{ counter }}</div>
+  <button @click="pause">Pause</button>
+  <button @click="resume">Resume</button>
 </template>
 
 <style>
