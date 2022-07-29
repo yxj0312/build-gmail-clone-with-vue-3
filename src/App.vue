@@ -29,7 +29,7 @@ export default {
 
 <script setup>
 import { useMouse } from './composables/mouse';
-import { useTitle, useRefHistory } from '@vueuse/core'
+import { useTitle, useRefHistory, useInterval } from '@vueuse/core'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const { x, y } = useMouse()
@@ -45,6 +45,11 @@ const { undo } = useRefHistory(state, {
   capacity: 15
 })
 
+//  count will increase every 200ms
+// const counter =  useInterval(200)
+
+const {counter, pause, resume } = useInterval(200, { controls: true})
+
 
 </script>
 
@@ -52,6 +57,7 @@ const { undo } = useRefHistory(state, {
   Mouse position is at : {{ x }}, {{ y }}
   <h1>Title Composable</h1>
   <input v-model="title" type="text">
+  <div>{{ counter }}</div>
 </template>
 
 <style>
