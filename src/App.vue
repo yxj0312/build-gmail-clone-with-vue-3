@@ -31,6 +31,7 @@ export default {
 import { useMouse } from './composables/mouse';
 import { useTitle, useRefHistory, useInterval, useNow } from '@vueuse/core'
 import { ref, onMounted, onUnmounted } from 'vue'
+import BaseButton from './components/BaseButton.vue';
 
 const { x, y } = useMouse()
 // use a ref
@@ -65,9 +66,7 @@ const { now, pause, resume } = useNow({ controls: true })
   <button @click="pause">Pause</button>
   <button @click="resume">Resume</button> -->
 
-  <button class="button">
-    <slot>Submit</slot>
-  </button>
+  <BaseButton>Cancel</BaseButton>
 </template>
 
 <style>
