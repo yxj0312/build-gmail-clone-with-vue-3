@@ -55,15 +55,19 @@ const { now, pause, resume } = useNow({ controls: true })
 </script>
 
 <template>
-  Mouse position is at : {{ x }}, {{ y }}
+  <!-- Mouse position is at : {{ x }}, {{ y }}
   <h1>Title Composable</h1>
-  <input v-model="title" type="text">
+  <input v-model="title" type="text"> -->
   <!-- <div>{{ counter }}</div>
   <button @click="pause">Pause</button>
   <button @click="resume">Resume</button> -->
-  <div>{{ now }}</div>
+  <!-- <div>{{ now }}</div>
   <button @click="pause">Pause</button>
-  <button @click="resume">Resume</button>
+  <button @click="resume">Resume</button> -->
+
+  <button class="button">
+    <slot>Submit</slot>
+  </button>
 </template>
 
 <style>
