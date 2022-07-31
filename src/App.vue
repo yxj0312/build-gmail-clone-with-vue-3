@@ -32,6 +32,7 @@ import { useMouse } from './composables/mouse';
 import { useTitle, useRefHistory, useInterval, useNow } from '@vueuse/core'
 import { ref, onMounted, onUnmounted } from 'vue'
 import BaseButton from './components/BaseButton.vue';
+import BlogLayout from './components/BlogLayout.vue';
 
 const { x, y } = useMouse()
 // use a ref
@@ -67,6 +68,21 @@ const { now, pause, resume } = useNow({ controls: true })
   <button @click="resume">Resume</button> -->
 
   <BaseButton>Cancel</BaseButton>
+
+  <BlogLayout>
+    <template v-slot: header>
+      <h1>Page Title</h1>
+    </template>
+    <template>
+      <p>My Page content</p>
+    </template>
+    <template v-slot:sidebar>
+      <ul>
+        <li>Bullet #1</li>
+        <li>Bullet #2</li>
+      </ul>
+    </template>
+  </BlogLayout>
 </template>
 
 <style>
