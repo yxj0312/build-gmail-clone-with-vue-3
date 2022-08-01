@@ -70,17 +70,14 @@ const { now, pause, resume } = useNow({ controls: true })
   <BaseButton>Cancel</BaseButton>
 
   <BlogLayout>
-    <template v-slot: header>
-      <h1>Page Title</h1>
+    <template v-slot:header>
+      <h1>My Blog Title</h1>
     </template>
     <template>
-      <p>My Page content</p>
+      <p>Main body content</p>
     </template>
     <template v-slot:sidebar>
-      <ul>
-        <li>Bullet #1</li>
-        <li>Bullet #2</li>
-      </ul>
+      <p>Footer content</p>
     </template>
   </BlogLayout>
 </template>
