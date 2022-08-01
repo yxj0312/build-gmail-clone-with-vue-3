@@ -54,6 +54,11 @@ const { undo } = useRefHistory(state, {
 const { now, pause, resume } = useNow({ controls: true })
 
 
+const layout = [
+        { name: 'header', content: 'My Blog Title' },
+        { name: 'default', content: 'Main body content' },
+        { name: 'sidebar', content: 'Footer contet' }
+      ]
 </script>
 
 <template>
@@ -69,7 +74,7 @@ const { now, pause, resume } = useNow({ controls: true })
 
   <BaseButton>Cancel</BaseButton>
 
-  <BlogLayout>
+  <!-- <BlogLayout>
     <template v-slot:header>
       <h1>My Blog Title</h1>
     </template>
@@ -78,6 +83,16 @@ const { now, pause, resume } = useNow({ controls: true })
     </template>
     <template v-slot:sidebar>
       <p>Footer content</p>
+    </template>
+  </BlogLayout> -->
+
+  <BlogLayout>
+    <template 
+      v-for="section in layout" 
+      v-slot:[section.name]
+      :key="`blog-section-${section.name}`"
+    >
+      {{ section.content }}
     </template>
   </BlogLayout>
 </template>
