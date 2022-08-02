@@ -1,6 +1,7 @@
 <template>
   <div class="book">
-    <slot name="title"></slot>
+    <slot name="title"
+        :bookTitle="bookTitle"></slot>
   </div>
 </template>
 
