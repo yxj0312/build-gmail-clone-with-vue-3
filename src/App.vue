@@ -33,6 +33,7 @@ import { useTitle, useRefHistory, useInterval, useNow } from '@vueuse/core'
 import { ref, onMounted, onUnmounted } from 'vue'
 import BaseButton from './components/BaseButton.vue';
 import BlogLayout from './components/BlogLayout.vue';
+import Library from './components/Library.vue';
 
 const { x, y } = useMouse()
 // use a ref
@@ -73,6 +74,8 @@ const layout = [
   <button @click="resume">Resume</button> -->
 
   <BaseButton>Cancel</BaseButton>
+
+  <Library></Library>
 
   <!-- <BlogLayout>
     <template v-slot:header>
