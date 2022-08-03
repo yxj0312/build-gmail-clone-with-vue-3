@@ -6,6 +6,9 @@
       <!-- <h1>{{ slotProps.bookTitle }}</h1> -->
       <h1>{{ bookTitle }}</h1>
     </template>
+    <template v-slot:description>
+      <p>My Description</p>
+    </template>
   </Book>
 </template>
 
