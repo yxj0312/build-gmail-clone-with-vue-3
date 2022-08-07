@@ -75,10 +75,10 @@ const layout = [
   <!-- <div>{{ now }}</div>
   <button @click="pause">Pause</button>
   <button @click="resume">Resume</button> -->
-
+<!-- 
   <BaseButton>Cancel</BaseButton>
 
-  <Library></Library>
+  <Library></Library> -->
 
   <!-- <BlogLayout>
     <template v-slot:header>
@@ -92,7 +92,7 @@ const layout = [
     </template>
   </BlogLayout> -->
 
-  <BlogLayout>
+  <!-- <BlogLayout>
     <template 
       v-for="section in layout" 
       v-slot:[section.name]
@@ -102,6 +102,8 @@ const layout = [
     </template>
   </BlogLayout>
 </template> -->
+
+
 
 <style>
 #app {
