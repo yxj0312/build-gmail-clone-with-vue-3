@@ -1,3 +1,4 @@
+<!-- Gmail -->
 <!-- <template>
   <h1>VMail Inbox</h1>
   <Suspense>
@@ -27,7 +28,9 @@ export default {
 };
 </script> -->
 
-<script setup>
+
+<!-- Component Design Patterns Vue -->
+<!-- <script setup>
 import { useMouse } from './composables/mouse';
 import { useTitle, useRefHistory, useInterval, useNow } from '@vueuse/core'
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -98,7 +101,7 @@ const layout = [
       {{ section.content }}
     </template>
   </BlogLayout>
-</template>
+</template> -->
 
 <style>
 #app {
