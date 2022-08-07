@@ -103,7 +103,10 @@ const layout = [
   </BlogLayout>
 </template> -->
 
+<!-- Learn Vue 3: Step by Step -->
+<script setup>
 
+</script>
 
 <style>
 #app {
