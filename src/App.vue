@@ -66,7 +66,7 @@ const layout = [
 </script>
 
 <template>
-  <!-- Mouse position is at : {{ x }}, {{ y }}
+// Mouse position is at : {{ x }}, {{ y }}
   <h1>Title Composable</h1>
   <input v-model="title" type="text"> -->
   <!-- <div>{{ counter }}</div>
@@ -105,7 +105,13 @@ const layout = [
 
 <!-- Learn Vue 3: Step by Step -->
 <script setup>
+import { ref } from 'vue';
 
+let message = ref("Hello, world");
+
+setTimeout(() => {
+  message.value = "I Have Been Changed"
+}, 2000);
 </script>
 
 <style>
